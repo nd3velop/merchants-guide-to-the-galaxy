@@ -17,7 +17,20 @@ public class RomanToArabicConverter implements INumberConverter<String, Integer>
 
     @Override
     public Integer convert(String value) {
-        return 2;
+        String romanNumber = value.toUpperCase();
+        String romanReversed = new StringBuilder(romanNumber.toUpperCase()).reverse().toString();
+        Integer result = 0;
+        int lastValue = 0;
+
+        for (char digit: romanReversed.toCharArray()) {
+            if (romanDigits.get(digit) >= lastValue)
+                result += romanDigits.get(digit);
+            else
+                result -= romanDigits.get(digit);
+            lastValue = romanDigits.get(digit);
+        }
+
+        return result;
     }
 
 }

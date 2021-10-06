@@ -3,7 +3,7 @@ package NumberConverter;
 import java.util.HashMap;
 
 public class RomanToArabicConverter implements INumberConverter<String, Integer>{
-    private final HashMap<Character, Integer> romanDigits = new HashMap<Character, Integer>();
+    private final HashMap<Character, Integer> romanDigits = new HashMap<>();
 
     public RomanToArabicConverter() {
         this.romanDigits.put('I', 1);
@@ -31,6 +31,12 @@ public class RomanToArabicConverter implements INumberConverter<String, Integer>
         }
 
         return result;
+    }
+
+    @Override
+    public boolean isValid(String value) {
+        // ToDo implement Method
+        return true;
     }
 
 }

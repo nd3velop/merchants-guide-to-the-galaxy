@@ -15,4 +15,10 @@ public class IntergalacticToRomanConverter implements INumberConverter<String, S
                 .reduce("", (s, c) -> s + c);
     }
 
+    @Override
+    public boolean isValid(String value) {
+        // ToDo implement Method
+        return false;
+    }
+
 }

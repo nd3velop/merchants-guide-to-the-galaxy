@@ -3,7 +3,9 @@ package NumberConverter;
 import java.util.TreeMap;
 
 public class ArabicToRomanConverter implements INumberConverter<Integer, String> {
-    private final TreeMap<Integer, String> romanDigits = new TreeMap<Integer, String>();
+    private final TreeMap<Integer, String> romanDigits = new TreeMap<>();
+    private final int maxValue = 3999;
+    private final int minValue = 1;
 
     public ArabicToRomanConverter() {
         this.romanDigits.put(1000, "M");
@@ -28,5 +30,11 @@ public class ArabicToRomanConverter implements INumberConverter<Integer, String>
             return romanDigits.get(number);
 
         return romanDigits.get(number) + convert(value - number);
+    }
+
+    @Override
+    public boolean isValid(Integer value) {
+        return value <= maxValue && value >= minValue;
+
     }
 }

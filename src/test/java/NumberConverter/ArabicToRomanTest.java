@@ -3,7 +3,7 @@ package NumberConverter;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class ArabicToRomanTest {
     private ArabicToRomanConverter romanToArabicConverter;
@@ -31,5 +31,30 @@ public class ArabicToRomanTest {
     @Test
     public void convertDCCCXLVII(){
         assertEquals(romanToArabicConverter.convert(847), "DCCCXLVII");
+    }
+
+    @Test
+    public void isValid123isTrue() {
+        assertTrue(romanToArabicConverter.isValid(123));
+    }
+
+    @Test
+    public void isValid4000isFalse() {
+        assertFalse(romanToArabicConverter.isValid(4000));
+    }
+
+    @Test
+    public void isValid3999isTrue() {
+        assertTrue(romanToArabicConverter.isValid(3999));
+    }
+
+    @Test
+    public void isValid0isFalse() {
+        assertFalse(romanToArabicConverter.isValid(0));
+    }
+
+    @Test
+    public void isValid1isTrue() {
+        assertTrue(romanToArabicConverter.isValid(1));
     }
 }

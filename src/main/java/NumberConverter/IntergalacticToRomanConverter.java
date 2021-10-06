@@ -1,6 +1,7 @@
 package NumberConverter;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.stream.Stream;
 
 public class IntergalacticToRomanConverter implements INumberConverter<String, String>{
@@ -10,15 +11,18 @@ public class IntergalacticToRomanConverter implements INumberConverter<String, S
     }
     @Override
     public String convert(String value) {
-        return Arrays.stream(value.split( " " ))
+        if (!isValid(value))
+            throw new IllegalArgumentException();
+
+        return Arrays.stream(value.replaceAll("  ", " ").toLowerCase().split( " " ))
                 .map(s -> intergalacticDigits.getRoman(s).toString())
                 .reduce("", (s, c) -> s + c);
     }
 
     @Override
     public boolean isValid(String value) {
-        // ToDo implement Method
-        return false;
+        return !Arrays.stream(value.replaceAll("  ", " ").toLowerCase().split( " " ))
+                .filter(s -> !intergalacticDigits.hasIntergalactic(s)).anyMatch(b -> true);
     }
 
 }

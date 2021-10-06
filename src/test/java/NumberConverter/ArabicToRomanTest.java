@@ -57,4 +57,9 @@ public class ArabicToRomanTest {
     public void isValid1isTrue() {
         assertTrue(romanToArabicConverter.isValid(1));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void convertNonValidNumber() {
+        romanToArabicConverter.convert(4000);
+    }
 }

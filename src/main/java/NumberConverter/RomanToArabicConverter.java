@@ -18,7 +18,11 @@ public class RomanToArabicConverter implements INumberConverter<String, Integer>
     @Override
     public Integer convert(String value) {
         String romanNumber = value.toUpperCase();
-        String romanReversed = new StringBuilder(romanNumber.toUpperCase()).reverse().toString();
+
+        if (!isValid(romanNumber))
+            throw new IllegalArgumentException();
+
+        String romanReversed = new StringBuilder(romanNumber).reverse().toString();
         Integer result = 0;
         int lastValue = 0;
 
@@ -29,14 +33,12 @@ public class RomanToArabicConverter implements INumberConverter<String, Integer>
                 result -= romanDigits.get(digit);
             lastValue = romanDigits.get(digit);
         }
-
         return result;
     }
 
     @Override
     public boolean isValid(String value) {
-        // ToDo implement Method
-        return true;
+        return value.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$") && !value.equals("");
     }
 
 }

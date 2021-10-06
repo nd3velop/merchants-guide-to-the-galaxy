@@ -25,6 +25,9 @@ public class ArabicToRomanConverter implements INumberConverter<Integer, String>
 
     @Override
     public String convert(Integer value) {
+        if (!isValid(value))
+            throw new IllegalArgumentException();
+
         int number = romanDigits.floorKey(value);
         if (number == value)
             return romanDigits.get(number);
@@ -35,6 +38,5 @@ public class ArabicToRomanConverter implements INumberConverter<Integer, String>
     @Override
     public boolean isValid(Integer value) {
         return value <= maxValue && value >= minValue;
-
     }
 }

@@ -7,8 +7,12 @@ public class IntergalacticDigits {
     private HashMap<String, Character> intergalacticToRoman = new HashMap<>();
 
     public void put(Character romanValue, String intergalacticValue) {
-        this.romanToIntergalactic.put(romanValue, intergalacticValue);
-        this.intergalacticToRoman.put(intergalacticValue, romanValue);
+        this.romanToIntergalactic.putIfAbsent(romanValue, intergalacticValue);
+        this.intergalacticToRoman.putIfAbsent(intergalacticValue, romanValue);
+    }
+
+    public boolean hasIntergalactic(String intergalacticValue) {
+        return intergalacticToRoman.containsKey(intergalacticValue);
     }
 
     public Character getRoman(String intergalacticValue) {

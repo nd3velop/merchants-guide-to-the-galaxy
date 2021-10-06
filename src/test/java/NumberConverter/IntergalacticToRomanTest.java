@@ -3,7 +3,7 @@ package NumberConverter;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class IntergalacticToRomanTest {
     private IntergalacticToRomanConverter intergalacticToRomanConverter;
@@ -28,5 +28,20 @@ public class IntergalacticToRomanTest {
     @Test
     public void convertPishTegjGlobGlob(){
         assertEquals(intergalacticToRomanConverter.convert("pish tegj glob glob"), "XLII");
+    }
+
+    @Test
+    public void isValidPishTegjGlobGlobisTrue(){
+        assertTrue(intergalacticToRomanConverter.isValid("Pish tegj  glob glob"));
+    }
+
+    @Test
+    public void isValidPishTegjGlobGloisFalse(){
+        assertFalse(intergalacticToRomanConverter.isValid("pish tegj glob glo"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void convertGloThrowsException(){
+        intergalacticToRomanConverter.convert("Glo");
     }
 }

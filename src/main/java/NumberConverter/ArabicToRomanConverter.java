@@ -26,7 +26,7 @@ public class ArabicToRomanConverter implements INumberConverter<Integer, String>
     @Override
     public String convert(Integer value) {
         if (!isValid(value))
-            throw new IllegalArgumentException(value + "can not be converted to a Roman number!");
+            throw new IllegalArgumentException(value + " can not be converted to a Roman number!");
 
         int number = romanDigits.floorKey(value);
         if (number == value)

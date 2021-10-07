@@ -21,7 +21,7 @@ public class RomanToArabicConverter implements INumberConverter<String, Integer>
         String romanNumber = value.toLowerCase();
 
         if (!isValid(romanNumber))
-            throw new IllegalArgumentException(value + "is not a valid Roman number!");
+            throw new IllegalArgumentException(value + " is not a valid Roman number!");
 
         String romanReversed = new StringBuilder(romanNumber).reverse().toString();
         Integer result = 0;

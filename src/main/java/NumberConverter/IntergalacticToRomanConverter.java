@@ -12,7 +12,7 @@ public class IntergalacticToRomanConverter implements INumberConverter<String, S
     @Override
     public String convert(String value) {
         if (!isValid(value))
-            throw new IllegalArgumentException(value + "is not a valid intergalactic number!");
+            throw new IllegalArgumentException(value + " is not a valid intergalactic number!");
 
         return Arrays.stream(transformValue(value).split( " " ))
                 .map(s -> intergalacticDigits.getRoman(s).toString())

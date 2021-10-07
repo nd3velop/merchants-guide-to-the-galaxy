@@ -2,7 +2,10 @@ package IOProcessor;
 
 import NumberConverter.NumberConversionFacade;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Locale;
+import java.util.Scanner;
 
 public class InputProcessor {
     private NumberConversionFacade numberConversionFacade = new NumberConversionFacade();
@@ -15,21 +18,33 @@ public class InputProcessor {
         this.outputProcessor = outputProcessor;
     }
 
+    public void processFile(String path){
+        try {
+            FileInputStream fileInputStream = new FileInputStream(path);
+            Scanner scanner = new Scanner(fileInputStream);
+
+            while (scanner.hasNextLine()) {
+                processLine(scanner.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void processLine(String line) {
-        if (line.matches("^([A-Z,a-z])\\w+ is [A-Z,a-z]$")) {
-            addIntergalacticDigit(line);
-        }
-        else if (line.toLowerCase().startsWith(ASK_HOW_MUCH) && line.endsWith("?")){
-            processIntergalacticToArabicRequest(line);
-        }
-        else if (line.toLowerCase().startsWith(ASK_HOW_MANY_CREDITS) && line.endsWith("?")){
-            processMetalToCreditsRequest(line);
-        }
-        else if (line.matches("^(([A-Z,a-z])\\w+ )+is ([0-9])+ Credits$")) {
-            addMetalPrice(line);
-        }
-        else {
-            processInvalidArgument();
+        try {
+            if (line.matches("^([A-Z,a-z])\\w+ is [A-Z,a-z]$"))
+                addIntergalacticDigit(line);
+            else if (line.toLowerCase().startsWith(ASK_HOW_MUCH) && line.endsWith("?"))
+                processIntergalacticToArabicRequest(line);
+            else if (line.toLowerCase().startsWith(ASK_HOW_MANY_CREDITS) && line.endsWith("?"))
+                processMetalToCreditsRequest(line);
+            else if (line.matches("^(([A-Z,a-z])\\w+ )+is ([0-9])+ Credits$"))
+                addMetalPrice(line);
+            else
+                processInvalidArgument();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
         }
     }
 

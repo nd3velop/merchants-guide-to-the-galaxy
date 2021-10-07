@@ -63,5 +63,21 @@ public class InputProcessorTest {
         inputProcessor.processLine("how many Credits is glob pork Gold ?");
         assertEquals("glob pork Gold is 57800 Credits", outContent.toString().trim());
     }
+
+    @Test
+    public void processUnsupportedLine() {
+        inputProcessor.processLine("how much wood could a woodchuck chuck if a woodchuck could chuck wood ?");
+        assertEquals("I have no idea what you are talking about.", outContent.toString().trim());
+    }
+
+    @Test
+    public void processNotesFile() {
+        IOutputProcessor consoleOutputProcessor = new ConsoleOutputProcessor();
+        InputProcessor emptyInputProcessor = new InputProcessor(consoleOutputProcessor);
+
+        inputProcessor.processFile("./Notes.txt");
+        inputProcessor.processLine("how many Credits is glob pork Gold ?");
+        assertEquals("glob pork Gold is 57800 Credits", outContent.toString().trim());
+    }
 }
 

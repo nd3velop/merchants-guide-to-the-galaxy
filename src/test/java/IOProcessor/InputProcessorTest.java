@@ -13,7 +13,7 @@ public class InputProcessorTest {
     @Before
     public void setUp() {
         intergalacticDigits = new IntergalacticDigits();
-        inputProcessor = new InputProcessor(intergalacticDigits);
+        inputProcessor = new InputProcessor();
     }
 
     @Test

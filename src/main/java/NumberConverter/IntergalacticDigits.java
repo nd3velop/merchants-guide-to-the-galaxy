@@ -7,8 +7,8 @@ public class IntergalacticDigits {
     private HashMap<String, Character> intergalacticToRoman = new HashMap<>();
 
     public void put(Character romanValue, String intergalacticValue) {
-        this.romanToIntergalactic.putIfAbsent(Character.toLowerCase(romanValue), intergalacticValue.toLowerCase());
-        this.intergalacticToRoman.putIfAbsent(intergalacticValue.toLowerCase(), Character.toLowerCase(romanValue));
+        this.romanToIntergalactic.put(Character.toLowerCase(romanValue), intergalacticValue.toLowerCase());
+        this.intergalacticToRoman.put(intergalacticValue.toLowerCase(), Character.toLowerCase(romanValue));
     }
 
     public boolean hasIntergalactic(String intergalacticValue) {

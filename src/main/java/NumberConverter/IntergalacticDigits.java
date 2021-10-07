@@ -22,4 +22,8 @@ public class IntergalacticDigits {
     public String getIntergalactic(Character romanValue) {
         return romanToIntergalactic.get(Character.toLowerCase(romanValue));
     }
+
+    public boolean hasRoman(Character romanValue) {
+        return romanToIntergalactic.containsKey(romanValue);
+    }
 }

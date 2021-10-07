@@ -22,12 +22,12 @@ public class IntergalacticToRomanTest {
 
     @Test
     public void convertGlobGlob(){
-        assertEquals(intergalacticToRomanConverter.convert("glob glob"), "II");
+        assertEquals(intergalacticToRomanConverter.convert("glob glob"), "ii");
     }
 
     @Test
     public void convertPishTegjGlobGlob(){
-        assertEquals(intergalacticToRomanConverter.convert("pish tegj glob glob"), "XLII");
+        assertEquals(intergalacticToRomanConverter.convert("pish tegj glob glob"), "xlii");
     }
 
     @Test

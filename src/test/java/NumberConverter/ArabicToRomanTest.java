@@ -15,22 +15,22 @@ public class ArabicToRomanTest {
 
     @Test
     public void convertII(){
-        assertEquals(romanToArabicConverter.convert(2), "II");
+        assertEquals(romanToArabicConverter.convert(2), "ii");
     }
 
     @Test
     public void convertXX(){
-        assertEquals(romanToArabicConverter.convert(20),"XX");
+        assertEquals(romanToArabicConverter.convert(20),"xx");
     }
 
     @Test
     public void convertMCMXLIV(){
-        assertEquals(romanToArabicConverter.convert(1944), "MCMXLIV");
+        assertEquals(romanToArabicConverter.convert(1944), "mcmxliv");
     }
 
     @Test
     public void convertDCCCXLVII(){
-        assertEquals(romanToArabicConverter.convert(847), "DCCCXLVII");
+        assertEquals(romanToArabicConverter.convert(847), "dcccxlvii");
     }
 
     @Test

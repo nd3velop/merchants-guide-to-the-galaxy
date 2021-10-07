@@ -27,7 +27,5 @@ public class InputProcessorTest {
         inputProcessor.processLine("pork is V");
         assertEquals("pork", intergalacticDigits.getIntergalactic('V'));
     }
-
-
 }
 

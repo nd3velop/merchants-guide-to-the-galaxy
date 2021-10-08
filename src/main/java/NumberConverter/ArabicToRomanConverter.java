@@ -24,6 +24,12 @@ public class ArabicToRomanConverter implements INumberConverter<Integer, String>
     }
 
     @Override
+    /*
+     * Converts a positive integer value to a roman value
+     *
+     * @param value an integer between 1 and 3999
+     * @return roman value
+     */
     public String convert(Integer value) {
         if (!isValid(value))
             throw new IllegalArgumentException(value + " can not be converted to a Roman number!");
@@ -36,6 +42,12 @@ public class ArabicToRomanConverter implements INumberConverter<Integer, String>
     }
 
     @Override
+    /*
+     * Checks if the passed value is between 1 and 3999 (including limits)
+     *
+     * @param integer value
+     * @ return true for values between 1 and 3999 (including limits)
+     */
     public boolean isValid(Integer value) {
         return value <= MAX_VALUE && value >= MIN_VALUE;
     }

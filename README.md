@@ -1,6 +1,11 @@
 # merchants-guide-to-the-galaxy
 
-To execute the program use the release or generate a new jar file with Maven. To build it with Maven execute the command `mvn clean package` in the application root. 
+To execute the program use the release and follow the instructions or generate a new jar file with Maven. To build it with Maven execute the following command in the application root:
+
+```sh
+mvn clean package
+java -cp target/merchants-guide-to-the-galaxy-1.0-SNAPSHOT.jar Application.ConsoleApplication
+``` 
 
 ## Description
 

@@ -2,6 +2,7 @@ package IOProcessor;
 
 import NumberConverter.NumberConversionFacade;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Locale;
@@ -19,15 +20,17 @@ public class InputProcessor {
     }
 
     public void processFile(String path){
-        try {
-            FileInputStream fileInputStream = new FileInputStream(path);
-            Scanner scanner = new Scanner(fileInputStream);
+        if (new File(path).isFile()){
+            try {
+                FileInputStream fileInputStream = new FileInputStream(path);
+                Scanner scanner = new Scanner(fileInputStream);
 
-            while (scanner.hasNextLine()) {
-                processLine(scanner.nextLine());
+                while (scanner.hasNextLine()) {
+                    processLine(scanner.nextLine());
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
@@ -44,6 +47,8 @@ public class InputProcessor {
             else
                 processInvalidArgument();
         } catch (IllegalArgumentException e) {
+             System.out.println(e.getMessage());
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

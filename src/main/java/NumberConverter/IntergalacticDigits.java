@@ -8,7 +8,6 @@ public class IntergalacticDigits {
 
     /**
      * Adds an intergalactic/roman key value pair
-     *
      * @param romanValue roman digit like I, V, X, L, C, D or M
      * @param intergalacticValue String that represents the corresponding intergalactic digit
      */
@@ -19,7 +18,6 @@ public class IntergalacticDigits {
 
     /**
      * Checks if the intergalactic digit already exists
-     *
      * @param intergalacticValue intergalactic digit
      * @return true if the intergalactic digit already exists
      */
@@ -47,7 +45,6 @@ public class IntergalacticDigits {
 
     /**
      * Checks if an intergalactic digit for the roman digit already exists
-     *
      * @param romanValue roman digit
      * @return true if the roman digit already has a mapping to an intergalactic digit
      */

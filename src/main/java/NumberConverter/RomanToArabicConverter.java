@@ -16,13 +16,13 @@ public class RomanToArabicConverter implements INumberConverter<String, Integer>
         this.romanDigits.put('m', 1000);
     }
 
-    @Override
-    /*
+
+    /**
      * Converts a roman value to a integer value
-     *
-     * @param roman     value
+     * @param value roman number
      * @return an integer between 1 and 3999
      */
+    @Override
     public Integer convert(String value) {
         String romanNumber = value.toLowerCase();
 
@@ -43,13 +43,12 @@ public class RomanToArabicConverter implements INumberConverter<String, Integer>
         return result;
     }
 
-    @Override
-    /*
+    /**
      * Checks if the passed String is a valid roman value
-     *
-     * @param   value   roman number
+     * @param value   roman number
      * @return true if value is a valid roman number
      */
+    @Override
     public boolean isValid(String value) {
         return value.toLowerCase().matches("^m{0,3}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|v?i{0,3})$") && !value.equals("");
     }

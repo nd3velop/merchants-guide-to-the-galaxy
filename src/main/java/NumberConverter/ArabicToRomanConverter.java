@@ -46,7 +46,7 @@ public class ArabicToRomanConverter implements INumberConverter<Integer, String>
      * Checks if the passed value is between 1 and 3999 (including limits)
      *
      * @param integer value
-     * @ return true for values between 1 and 3999 (including limits)
+     * @return true for values between 1 and 3999 (including limits)
      */
     public boolean isValid(Integer value) {
         return value <= MAX_VALUE && value >= MIN_VALUE;

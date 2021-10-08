@@ -30,6 +30,16 @@ For example MCMXLIV = 1000 + (1000 - 100) + (50 - 10) + (5 - 1) = 1944.
 The symbols "I", "X", "C", and "M" can be repeated three times in succession, but no more. (They may appear four times if the third and fourth are separated by a smaller value, such as XXXIX.) "D", "L", and "V" can never be repeated. "I" can be subtracted from "V" and "X" only. "X" can be subtracted from "L" and "C" only. "C" can be subtracted from "D" and "M" only. "V", "L", and "D" can never be subtracted. Only one small-value symbol may be subtracted from any large-value symbol. A number written in [16]Arabic numerals can be broken into digits. For example, 1903 is composed of 1, 9, 0, and 3. To write the Roman numeral, each of the non-zero digits should be treated separately. Inthe above example, 1,000 = M, 900 = CM, and 3 = III. Therefore, 1903 = MCMIII.
 (Source: [Wikipedia](http://en.wikipedia.org/wiki/Roman_numerals))
 
+## Interaction with the CLI
+
+To add instructions write `[intergalactic numeral] is [roman numeral]` (i. e. glob is I) to add an intergalactic numeral or `[intergalactic number] [Metal] is [value] Credits` (i. e. glob prok Gold is 57800 Credits) to add a metal.
+
+To translate intergalactic in earth units you can write instructions like:
+`how much is [intergalactic number] ?` (i. e. how much is pish tegj glob glob ?)
+`how many Credits is [intergalactic number] [Metal] ?` (i. e. how many Credits is glob prok Gold ?)
+
+Tap `Exit` to close the program.
+
 ## Test Data
 
 ### Test Input
